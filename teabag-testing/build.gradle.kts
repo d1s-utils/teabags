@@ -3,8 +3,6 @@ plugins {
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
 }
 
-version = "1.0.0.stable.0"
-
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-web")
