@@ -13,14 +13,16 @@ import uno.d1s.teabag.testing.mockRequest
 
 internal class CurrentRequestTest {
 
+    private val request = mockRequest
+
     @Test
     fun `should return current request`() {
         mockkStatic(RequestContextHolder::class) {
             every {
                 (RequestContextHolder.getRequestAttributes() as ServletRequestAttributes).request
-            } returns mockRequest
+            } returns request
 
-            expectThat(currentRequest).isEqualTo(mockRequest)
+            expectThat(currentRequest).isEqualTo(request)
 
             verify {
                 (RequestContextHolder.getRequestAttributes() as ServletRequestAttributes).request
