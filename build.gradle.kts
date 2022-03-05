@@ -11,12 +11,10 @@ allprojects {
         plugin("java-library")
         plugin("maven-publish")
         plugin("org.jetbrains.kotlin.jvm")
-        plugin("org.springframework.boot")
-        plugin("io.spring.dependency-management")
     }
 
     group = "uno.d1s"
-    version = "1.2.0-stable.1"
+    version = "1.3.0-stable.0"
     java.sourceCompatibility = JavaVersion.VERSION_11
 
     repositories {
