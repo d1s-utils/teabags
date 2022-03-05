@@ -9,7 +9,7 @@ repositories {
     maven(url = "https://jitpack.io")
 }
 
-implementation("uno.d1s.teabags:{module}:{teabags version}")
+implementation("dev.d1s.teabags:{module}:{teabags version}")
 ```
 
 ### Modules

@@ -13,8 +13,8 @@ allprojects {
         plugin("org.jetbrains.kotlin.jvm")
     }
 
-    group = "uno.d1s"
-    version = "1.3.0-stable.1"
+    group = "dev.d1s"
+    version = "2.0.0-stable.0"
     java.sourceCompatibility = JavaVersion.VERSION_11
 
     repositories {
