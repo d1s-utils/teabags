@@ -16,22 +16,22 @@ allprojects {
     }
 
     group = "uno.d1s"
-    version = "1.2.0-stable.0"
+    version = "1.2.0-stable.1"
     java.sourceCompatibility = JavaVersion.VERSION_11
 
     repositories {
         mavenCentral()
     }
 
-    extra["striktVersion"] = "0.34.1"
-    extra["mockkVersion"] = "1.12.3"
-    extra["junitVersion"] = "5.8.2"
+    val striktVersion: String by project
+    val mockkVersion: String by project
+    val junitVersion: String by project
 
     dependencies {
         implementation(kotlin("stdlib"))
-        testImplementation("org.junit.jupiter:junit-jupiter-api:${property("junitVersion")}")
-        testImplementation("io.strikt:strikt-jvm:${property("striktVersion")}")
-        testImplementation("io.mockk:mockk:${property("mockkVersion")}")
+        testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
+        testImplementation("io.strikt:strikt-jvm:$striktVersion")
+        testImplementation("io.mockk:mockk:$mockkVersion")
     }
 
     tasks.withType<Test> {
