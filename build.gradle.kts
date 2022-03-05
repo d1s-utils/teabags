@@ -14,7 +14,7 @@ allprojects {
     }
 
     group = "uno.d1s"
-    version = "1.3.0-stable.0"
+    version = "1.3.0-stable.1"
     java.sourceCompatibility = JavaVersion.VERSION_11
 
     repositories {
