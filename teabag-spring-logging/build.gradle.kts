@@ -6,7 +6,8 @@ apply {
 val junitVersion: String by project
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-logging")
+    compileOnly("org.springframework.boot:spring-boot-starter-logging")
+    testImplementation("org.springframework.boot:spring-boot-starter-logging")
     testImplementation("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
 }
 
