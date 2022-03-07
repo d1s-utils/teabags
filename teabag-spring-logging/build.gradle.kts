@@ -1,8 +1,3 @@
-apply {
-    plugin("org.springframework.boot")
-    plugin("io.spring.dependency-management")
-}
-
 val junitVersion: String by project
 
 dependencies {

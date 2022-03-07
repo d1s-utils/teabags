@@ -11,7 +11,7 @@ import dev.d1s.teabag.testing.constant.INVALID_STUB
 import dev.d1s.teabag.testing.constant.VALID_STUB
 import javax.servlet.http.HttpServletRequest
 
-internal class HeadersTest {
+internal class HttpServletRequestExtTest {
 
     private val request = mockk<HttpServletRequest> {
         every {

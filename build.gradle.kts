@@ -11,10 +11,12 @@ allprojects {
         plugin("java-library")
         plugin("maven-publish")
         plugin("org.jetbrains.kotlin.jvm")
+        plugin("org.springframework.boot")
+        plugin("io.spring.dependency-management")
     }
 
     group = "dev.d1s"
-    version = "2.2.0-stable.1"
+    version = "2.3.0-stable.0"
     java.sourceCompatibility = JavaVersion.VERSION_11
 
     repositories {
@@ -27,6 +29,7 @@ allprojects {
 
     dependencies {
         implementation(kotlin("stdlib"))
+        testImplementation(project(":teabag-testing"))
         testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
         testImplementation("io.strikt:strikt-jvm:$striktVersion")
         testImplementation("io.mockk:mockk:$mockkVersion")
@@ -68,6 +71,6 @@ allprojects {
 
 
     kotlin {
-        explicitApi = org.jetbrains.kotlin.gradle.dsl.ExplicitApiMode.Warning
+        explicitApiWarning()
     }
 }

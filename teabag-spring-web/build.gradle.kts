@@ -1,11 +1,5 @@
-apply {
-    plugin("org.springframework.boot")
-    plugin("io.spring.dependency-management")
-}
-
 dependencies {
     compileOnly("org.springframework.boot:spring-boot-starter-web")
-    testImplementation(project(":teabag-testing"))
     testImplementation("org.springframework.boot:spring-boot-starter-web")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

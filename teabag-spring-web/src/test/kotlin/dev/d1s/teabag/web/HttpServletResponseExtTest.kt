@@ -17,7 +17,7 @@ import strikt.api.expectThat
 import strikt.assertions.isEqualTo
 import java.time.Instant
 
-internal class HttpServletResponseTest {
+internal class HttpServletResponseExtTest {
 
     private val response = spyk(mockResponse)
 
