@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test
 import strikt.api.expectThat
 import strikt.assertions.isEqualTo
 
-class StringExtTest {
+internal class StringExtTest {
 
     @Test
     fun `should return String with padding`() {

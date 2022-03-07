@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test
 import strikt.api.expectThat
 import strikt.assertions.isEqualTo
 
-class PropertyDeprecationMessageConstantsTest {
+internal class PropertyDeprecationMessageConstantsTest {
 
     @Test
     fun `should return valid 'Property is deprecated'`() {
