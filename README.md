@@ -1,9 +1,12 @@
 [![](https://jitpack.io/v/d1snin/teabags.svg)](https://jitpack.io/#d1snin/teabags)
 
 # teabags
-Teabags are utilities for Spring modules and other libraries including standard one, which makes the code more fluent, pretty and simple to understand.
+
+Teabags are utilities for Spring modules and other libraries including standard one, which makes the code more fluent,
+pretty and simple to understand.
 
 ### Installation
+
 ```kotlin
 repositories {
     maven(url = "https://jitpack.io")
@@ -15,6 +18,7 @@ dependencies {
 ```
 
 ### Modules
+
 | Module                  | Description                                |
 |-------------------------|--------------------------------------------|
 | `teabag-spring-logging` | Utilities for Spring logging.              |
