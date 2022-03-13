@@ -14,7 +14,12 @@ internal class ServletUriComponentsBuilderTest {
     fun `should return valid path`() {
         mockkStatic(ServletUriComponentsBuilder::class) {
             every {
-                ServletUriComponentsBuilder.fromCurrentRequest().path(VALID_STUB).build().path!!
+                ServletUriComponentsBuilder
+                    .fromCurrentRequest()
+                    .path("/{value}")
+                    .buildAndExpand(VALID_STUB)
+                    .toUri()
+                    .toString()
             } returns VALID_STUB
 
             expectThat(
