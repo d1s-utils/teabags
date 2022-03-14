@@ -17,6 +17,7 @@ internal class ServletUriComponentsBuilderTest {
                 ServletUriComponentsBuilder
                     .fromCurrentRequest()
                     .path("/{value}")
+                    .httpsScheme()
                     .buildAndExpand(VALID_STUB)
                     .toUriString()
             } returns VALID_STUB
@@ -34,6 +35,7 @@ internal class ServletUriComponentsBuilderTest {
                 ServletUriComponentsBuilder
                     .fromCurrentRequest()
                     .replacePath(null)
+                    .httpsScheme()
                     .toUriString()
             } returns VALID_STUB
 
