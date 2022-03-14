@@ -18,12 +18,27 @@ internal class ServletUriComponentsBuilderTest {
                     .fromCurrentRequest()
                     .path("/{value}")
                     .buildAndExpand(VALID_STUB)
-                    .toUri()
-                    .toString()
+                    .toUriString()
             } returns VALID_STUB
 
             expectThat(
                 appendPath(VALID_STUB)
+            ).isEqualTo(VALID_STUB)
+        }
+    }
+
+    @Test
+    fun `should return valid uri`() {
+        mockkStatic(ServletUriComponentsBuilder::class) {
+            every {
+                ServletUriComponentsBuilder
+                    .fromCurrentRequest()
+                    .replacePath(null)
+                    .toUriString()
+            } returns VALID_STUB
+
+            expectThat(
+                currentUriWithNoPath()
             ).isEqualTo(VALID_STUB)
         }
     }

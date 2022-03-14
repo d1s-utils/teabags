@@ -7,5 +7,10 @@ public fun appendPath(value: String): String =
         .fromCurrentRequest()
         .path("/{value}")
         .buildAndExpand(value)
-        .toUri()
-        .toString()
+        .toUriString()
+
+public fun currentUriWithNoPath(): String =
+    ServletUriComponentsBuilder
+        .fromCurrentRequest()
+        .replacePath(null)
+        .toUriString()
