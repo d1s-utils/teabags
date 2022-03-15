@@ -17,6 +17,13 @@ public fun appendPath(value: String, includeScheme: Boolean = true, replaceHttpW
         .buildAndExpand(value)
         .toUriString()
 
+public fun appendRootPath(value: String, includeScheme: Boolean = true, replaceHttpWithHttps: Boolean = true): String =
+    buildFromCurrentRequest()
+        .configureScheme(includeScheme, replaceHttpWithHttps)
+        .replacePath(null)
+        .path(value)
+        .toUriString()
+
 public fun currentUriWithNoPath(includeScheme: Boolean = true, replaceHttpWithHttps: Boolean = true): String =
     buildFromCurrentRequest()
         .replacePath(null)

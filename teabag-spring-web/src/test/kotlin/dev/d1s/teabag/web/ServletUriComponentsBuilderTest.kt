@@ -40,6 +40,33 @@ internal class ServletUriComponentsBuilderTest {
     }
 
     @Test
+    fun `should return valid uri with appended root path`() {
+        mockServletUriComponentsBuilder {
+            every {
+                ServletUriComponentsBuilder
+                    .fromCurrentRequest()
+                    .httpsScheme()
+                    .replacePath(null)
+                    .path(VALID_STUB)
+                    .toUriString()
+            } returns VALID_STUB
+
+            expectThat(
+                appendRootPath(VALID_STUB)
+            ).isEqualTo(VALID_STUB)
+
+            verify {
+                ServletUriComponentsBuilder
+                    .fromCurrentRequest()
+                    .httpsScheme()
+                    .replacePath(null)
+                    .path(VALID_STUB)
+                    .toUriString()
+            }
+        }
+    }
+
+    @Test
     fun `should return valid uri with no path`() {
         mockServletUriComponentsBuilder {
             every {
