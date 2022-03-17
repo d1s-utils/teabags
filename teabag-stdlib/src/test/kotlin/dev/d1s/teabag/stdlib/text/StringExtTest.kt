@@ -4,6 +4,7 @@ import dev.d1s.teabag.testing.constant.VALID_STUB
 import org.junit.jupiter.api.Test
 import strikt.api.expectThat
 import strikt.assertions.isEqualTo
+import strikt.assertions.isTrue
 
 internal class StringExtTest {
 
@@ -33,5 +34,10 @@ internal class StringExtTest {
     fun `should return empty String`() {
         val nullableString: String? = null
         expectThat(nullableString.thisOrEmpty()).isEqualTo("")
+    }
+
+    @Test
+    fun `should check if the string is a url`() {
+        expectThat("https://d1s.dev/".isUrl()).isTrue()
     }
 }
