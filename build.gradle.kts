@@ -69,7 +69,6 @@ allprojects {
         enabled = false
     }
 
-
     kotlin {
         explicitApiWarning()
     }
