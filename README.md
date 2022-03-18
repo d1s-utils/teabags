@@ -22,6 +22,7 @@ dependencies {
 | Module                  | Description                                |
 |-------------------------|--------------------------------------------|
 | `teabag-spring-logging` | Utilities for Spring logging.              |
+| `teabag-mapstruct`      | Utilities for mapstruct's `Mappers`.       |
 | `teabag-spring-web`     | Utilities for Spring Web.                  |
 | `teabag-stdlib`         | Utilities for Kotlin/JVM standard library. |
 | `teabag-testing`        | Utilities for testing.                     |
