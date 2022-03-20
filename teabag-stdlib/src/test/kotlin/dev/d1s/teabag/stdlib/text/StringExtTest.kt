@@ -40,4 +40,18 @@ internal class StringExtTest {
     fun `should check if the string is a url`() {
         expectThat("https://d1s.dev/".isUrl()).isTrue()
     }
+
+    @Test
+    fun `should replace the placeholder`() {
+        expectThat(
+            "this is {stuff}".replacePlaceholder("stuff" to "replaced")
+        ) isEqualTo "this is replaced"
+
+        expectThat(
+            "this is {stuff1} and {stuff2}".replacePlaceholder(
+                "stuff1" to "replaced1",
+                "stuff2" to "replaced2"
+            )
+        ) isEqualTo "this is replaced1 and replaced2"
+    }
 }

@@ -1,5 +1,6 @@
 package dev.d1s.teabag.stdlib.text
 
+import dev.d1s.teabag.stdlib.collection.multiply
 import java.net.MalformedURLException
 import java.net.URL
 
@@ -35,3 +36,8 @@ public fun String.isUrl(): Boolean = try {
 } catch (_: MalformedURLException) {
     false
 }
+
+public fun String.replacePlaceholder(vararg replacements: Pair<String, String>): String =
+    replacements.asIterable().multiply(this) { it, principal ->
+        principal.replace("{${it.first}}", it.second)
+    }
