@@ -18,10 +18,9 @@ internal class ServletUriComponentsBuilderTest {
             every {
                 ServletUriComponentsBuilder
                     .fromCurrentRequest()
-                    .path("/{value}")
-                    .httpsScheme()
-                    .buildAndExpand(VALID_STUB)
-                    .toUriString()
+                    .configure()
+                    .path(VALID_STUB)
+                    .buildWithNoEncoding()
             } returns VALID_STUB
 
             expectThat(
@@ -31,10 +30,9 @@ internal class ServletUriComponentsBuilderTest {
             verify {
                 ServletUriComponentsBuilder
                     .fromCurrentRequest()
-                    .path("/{value}")
-                    .httpsScheme()
-                    .buildAndExpand(VALID_STUB)
-                    .toUriString()
+                    .configure()
+                    .path(VALID_STUB)
+                    .buildWithNoEncoding()
             }
         }
     }
@@ -45,10 +43,10 @@ internal class ServletUriComponentsBuilderTest {
             every {
                 ServletUriComponentsBuilder
                     .fromCurrentRequest()
-                    .httpsScheme()
+                    .configure()
                     .replacePath(null)
                     .path(VALID_STUB)
-                    .toUriString()
+                    .buildWithNoEncoding()
             } returns VALID_STUB
 
             expectThat(
@@ -58,10 +56,10 @@ internal class ServletUriComponentsBuilderTest {
             verify {
                 ServletUriComponentsBuilder
                     .fromCurrentRequest()
-                    .httpsScheme()
+                    .configure()
                     .replacePath(null)
                     .path(VALID_STUB)
-                    .toUriString()
+                    .buildWithNoEncoding()
             }
         }
     }
@@ -72,9 +70,9 @@ internal class ServletUriComponentsBuilderTest {
             every {
                 ServletUriComponentsBuilder
                     .fromCurrentRequest()
+                    .configure()
                     .replacePath(null)
-                    .httpsScheme()
-                    .toUriString()
+                    .buildWithNoEncoding()
             } returns VALID_STUB
 
             expectThat(
@@ -84,9 +82,9 @@ internal class ServletUriComponentsBuilderTest {
             verify {
                 ServletUriComponentsBuilder
                     .fromCurrentRequest()
+                    .configure()
                     .replacePath(null)
-                    .httpsScheme()
-                    .toUriString()
+                    .buildWithNoEncoding()
             }
         }
     }
@@ -97,7 +95,11 @@ internal class ServletUriComponentsBuilderTest {
         }
     }
 
-    private fun UriComponentsBuilder.httpsScheme() = apply {
+    private fun UriComponentsBuilder.configure() = apply {
         scheme("https")
+        replaceQueryParams(null)
     }
+
+    private fun UriComponentsBuilder.buildWithNoEncoding() =
+        build(false).toUriString()
 }
