@@ -10,25 +10,39 @@ public fun buildFromCurrentRequest(): UriComponentsBuilder = ServletUriComponent
 public inline fun buildFromCurrentRequest(block: UriComponentsBuilder.() -> Unit): String =
     buildFromCurrentRequest().apply(block).toUriString()
 
-public fun appendPath(value: String, includeScheme: Boolean = true, replaceHttpWithHttps: Boolean = true): String =
-    buildFromCurrentRequest()
-        .path("/{value}")
-        .configureScheme(includeScheme, replaceHttpWithHttps)
-        .buildAndExpand(value)
-        .toUriString()
+public fun appendPath(
+    value: String, includeScheme: Boolean = true,
+    replaceHttpWithHttps: Boolean = true,
+    keepParameters: Boolean = false,
+    encode: Boolean = true
+): String = buildFromCurrentRequest()
+    .path(value)
+    .configureScheme(includeScheme, replaceHttpWithHttps)
+    .configureParameters(keepParameters)
+    .toUriString(encode)
 
-public fun appendRootPath(value: String, includeScheme: Boolean = true, replaceHttpWithHttps: Boolean = true): String =
-    buildFromCurrentRequest()
-        .configureScheme(includeScheme, replaceHttpWithHttps)
-        .replacePath(null)
-        .path(value)
-        .toUriString()
+public fun appendRootPath(
+    value: String, includeScheme: Boolean = true,
+    replaceHttpWithHttps: Boolean = true,
+    keepParameters: Boolean = false,
+    encode: Boolean = true
+): String = buildFromCurrentRequest()
+    .configureScheme(includeScheme, replaceHttpWithHttps)
+    .configureParameters(keepParameters)
+    .replacePath(null)
+    .path(value)
+    .toUriString(encode)
 
-public fun currentUriWithNoPath(includeScheme: Boolean = true, replaceHttpWithHttps: Boolean = true): String =
-    buildFromCurrentRequest()
-        .replacePath(null)
-        .configureScheme(includeScheme, replaceHttpWithHttps)
-        .toUriString()
+public fun currentUriWithNoPath(
+    includeScheme: Boolean = true,
+    replaceHttpWithHttps: Boolean = true,
+    keepParameters: Boolean = false,
+    encode: Boolean = true
+): String = buildFromCurrentRequest()
+    .replacePath(null)
+    .configureScheme(includeScheme, replaceHttpWithHttps)
+    .configureParameters(keepParameters)
+    .toUriString(encode)
 
 private fun UriComponentsBuilder.configureScheme(includeScheme: Boolean, replaceHttpWithHttps: Boolean) = apply {
     if (!includeScheme) {
@@ -39,3 +53,12 @@ private fun UriComponentsBuilder.configureScheme(includeScheme: Boolean, replace
         }
     }
 }
+
+private fun UriComponentsBuilder.configureParameters(keep: Boolean) = apply {
+    if (!keep) {
+        replaceQueryParams(null)
+    }
+}
+
+private fun UriComponentsBuilder.toUriString(encode: Boolean) =
+    build(encode).toUriString()
