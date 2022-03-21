@@ -14,18 +14,18 @@ public fun appendPath(
     value: String, includeScheme: Boolean = true,
     replaceHttpWithHttps: Boolean = true,
     keepParameters: Boolean = false,
-    encode: Boolean = true
+    encode: Boolean = false
 ): String = buildFromCurrentRequest()
-    .path(value)
     .configureScheme(includeScheme, replaceHttpWithHttps)
     .configureParameters(keepParameters)
+    .path(value)
     .toUriString(encode)
 
 public fun appendRootPath(
     value: String, includeScheme: Boolean = true,
     replaceHttpWithHttps: Boolean = true,
     keepParameters: Boolean = false,
-    encode: Boolean = true
+    encode: Boolean = false
 ): String = buildFromCurrentRequest()
     .configureScheme(includeScheme, replaceHttpWithHttps)
     .configureParameters(keepParameters)
@@ -37,11 +37,11 @@ public fun currentUriWithNoPath(
     includeScheme: Boolean = true,
     replaceHttpWithHttps: Boolean = true,
     keepParameters: Boolean = false,
-    encode: Boolean = true
+    encode: Boolean = false
 ): String = buildFromCurrentRequest()
-    .replacePath(null)
     .configureScheme(includeScheme, replaceHttpWithHttps)
     .configureParameters(keepParameters)
+    .replacePath(null)
     .toUriString(encode)
 
 private fun UriComponentsBuilder.configureScheme(includeScheme: Boolean, replaceHttpWithHttps: Boolean) = apply {
