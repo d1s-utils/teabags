@@ -1,5 +1,6 @@
-package dev.d1s.teabag.testing
+package dev.d1s.teabag.testing.http
 
+import dev.d1s.teabag.testing.mockResponse
 import org.junit.jupiter.api.Test
 import org.springframework.mock.web.MockHttpServletResponse
 import strikt.api.expectThat
