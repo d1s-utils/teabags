@@ -9,6 +9,6 @@ internal class LoggerTest {
 
     @Test
     fun `should return Logger`() {
-        expectThat(logger).isA<Logger>()
+        expectThat(logger(this::class)).isA<Logger>()
     }
 }
