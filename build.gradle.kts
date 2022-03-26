@@ -25,7 +25,6 @@ allprojects {
 
     dependencies {
         implementation(kotlin("stdlib"))
-        testImplementation(project(":teabag-testing"))
         testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
         testImplementation("io.strikt:strikt-jvm:$striktVersion")
         testImplementation("io.mockk:mockk:$mockkVersion")

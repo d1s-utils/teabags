@@ -1,5 +1,6 @@
 package dev.d1s.teabag.web
 
+import dev.d1s.teabag.testing.spring.http.mockRequest
 import io.mockk.every
 import io.mockk.mockkStatic
 import io.mockk.verify
@@ -9,7 +10,6 @@ import org.springframework.web.context.request.RequestContextHolder
 import org.springframework.web.context.request.ServletRequestAttributes
 import strikt.api.expectThat
 import strikt.assertions.isEqualTo
-import dev.d1s.teabag.testing.mockRequest
 
 internal class CurrentRequestTest {
 

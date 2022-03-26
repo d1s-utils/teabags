@@ -5,6 +5,8 @@ plugins {
 
 dependencies {
     compileOnly("org.springframework.boot:spring-boot-starter-web")
+    testImplementation(project(":teabag-testing"))
+    testImplementation(project(":teabag-testing-spring"))
     testImplementation("org.springframework.boot:spring-boot-starter-web")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
