@@ -1,7 +1,7 @@
 package dev.d1s.teabag.web.dto
 
 import dev.d1s.teabag.testing.constant.VALID_STUB
-import dev.d1s.teabag.testing.mockRequest
+import dev.d1s.teabag.testing.spring.http.mockRequest
 import dev.d1s.teabag.web.currentRequest
 import io.mockk.every
 import io.mockk.mockkStatic
