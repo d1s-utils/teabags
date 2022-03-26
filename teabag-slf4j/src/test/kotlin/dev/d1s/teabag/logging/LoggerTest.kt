@@ -1,7 +1,7 @@
 package dev.d1s.teabag.logging
 
-import org.apache.logging.log4j.Logger
 import org.junit.jupiter.api.Test
+import org.slf4j.Logger
 import strikt.api.expectThat
 import strikt.assertions.isA
 

@@ -3,15 +3,16 @@ plugins {
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
 }
 
+val coroutinesVersion: String by project
+
 dependencies {
-    compileOnly("org.springframework.boot:spring-boot-starter-web")
-    testImplementation("org.springframework.boot:spring-boot-starter-web")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 publishing {
     publications {
-        create<MavenPublication>("teabag-spring-web") {
+        create<MavenPublication>("teabag-testing-spring") {
             from(components["java"])
         }
     }
