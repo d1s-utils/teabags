@@ -54,4 +54,14 @@ internal class StringExtTest {
             )
         ) isEqualTo "this is replaced1 and replaced2"
     }
+
+    @Test
+    fun `should check whether the string has whitespace`() {
+        expectThat(" ".hasWhiteSpace()).isTrue()
+    }
+
+    @Test
+    fun `should wrap lines`() {
+        expectThat("----- ---".wrapLines(4)) isEqualTo "-----\n---"
+    }
 }

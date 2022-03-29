@@ -19,3 +19,9 @@ public inline fun <T, P : Any> Iterable<T>.multiply(principalObj: P, block: (T, 
 
     return principal
 }
+
+public fun Iterable<String>.toSpaceDelimitedString(): String = this.joinToString(" ")
+
+public fun Iterable<String>.lengthiestLine(): String = this.maxByOrNull {
+    it.length
+} ?: throw IllegalArgumentException("This iterable is empty.")

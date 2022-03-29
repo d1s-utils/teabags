@@ -26,4 +26,14 @@ internal class IterableExtTest {
             }
         ).isEqualTo("rrr")
     }
+
+    @Test
+    fun `should return space delimited string`() {
+        expectThat(setOf("a", "b", "c").toSpaceDelimitedString()) isEqualTo "a b c"
+    }
+
+    @Test
+    fun `should return lengthiest line`() {
+        expectThat(listOf("-", "--").lengthiestLine()) isEqualTo "--"
+    }
 }

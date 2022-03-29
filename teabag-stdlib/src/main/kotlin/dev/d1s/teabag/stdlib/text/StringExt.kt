@@ -1,5 +1,6 @@
 package dev.d1s.teabag.stdlib.text
 
+import dev.d1s.teabag.stdlib.collection.lengthiestLine
 import dev.d1s.teabag.stdlib.collection.multiply
 import java.net.MalformedURLException
 import java.net.URL
@@ -41,3 +42,46 @@ public fun String.replacePlaceholder(vararg replacements: Pair<String, String>):
     replacements.asIterable().multiply(this) { it, principal ->
         principal.replace("{${it.first}}", it.second)
     }
+
+public fun String.hasWhiteSpace(): Boolean = this.contains("\\s".toRegex())
+
+public fun String.wrapLines(maxWidth: Int): String {
+    val lines = this.lines().toMutableList()
+
+    val lengthiestLine = lines.lengthiestLine()
+
+    if (lengthiestLine.length <= maxWidth) {
+        return this
+    }
+
+    val lengthiestLineWords = lengthiestLine.split("\\s+".toRegex())
+    val lengthiestLineIndex = lines.indexOf(lengthiestLine)
+    val lengthiestLineWordsHalf = (lengthiestLineWords.size / 2) - 1
+
+    lines.removeAt(lengthiestLineIndex)
+
+    lines.addAll(
+        lengthiestLineIndex,
+        buildList {
+            lengthiestLineWords.forEachIndexed { index, word ->
+                add(
+                    word + if (index != lengthiestLineWords.size - 1 && index != lengthiestLineWordsHalf) {
+                        " "
+                    } else {
+                        ""
+                    }
+                )
+            }
+        }
+    )
+
+    val result = lines.joinToString("\n")
+
+    val currentLengthiestLine = lines.lengthiestLine()
+
+    return if (currentLengthiestLine.length > maxWidth && currentLengthiestLine.hasWhiteSpace()) {
+        result.wrapLines(maxWidth)
+    } else {
+        result
+    }
+}
