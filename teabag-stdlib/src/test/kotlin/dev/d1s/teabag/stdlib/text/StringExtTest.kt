@@ -62,6 +62,6 @@ internal class StringExtTest {
 
     @Test
     fun `should wrap lines`() {
-        expectThat("----- ---".wrapLines(4)) isEqualTo "-----\n---"
+        expectThat("------ --- -".wrapLines(5)) isEqualTo "------\n--- -"
     }
 }

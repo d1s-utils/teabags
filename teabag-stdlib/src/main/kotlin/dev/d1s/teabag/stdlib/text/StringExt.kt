@@ -63,15 +63,27 @@ public fun String.wrapLines(maxWidth: Int): String {
     lines.addAll(
         lengthiestLineIndex,
         buildList {
+            val firstPart = StringBuilder()
+            val secondPart = StringBuilder()
+
             lengthiestLineWords.forEachIndexed { index, word ->
-                add(
-                    word + if (index != lengthiestLineWords.size - 1 && index != lengthiestLineWordsHalf) {
-                        " "
-                    } else {
-                        ""
+                if (index <= lengthiestLineWordsHalf) {
+                    firstPart.append(word)
+
+                    if (index != lengthiestLineWords.size - 1 && index != lengthiestLineWordsHalf) {
+                        firstPart.append(" ")
                     }
-                )
+                } else {
+                    secondPart.append(word)
+
+                    if (index != lengthiestLineWords.size - 1) {
+                        secondPart.append(" ")
+                    }
+                }
             }
+
+            add(firstPart.toString())
+            add(secondPart.toString())
         }
     )
 
