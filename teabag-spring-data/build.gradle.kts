@@ -3,8 +3,12 @@ plugins {
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
 }
 
+val junitVersion: String by project
+
 dependencies {
     compileOnly("org.springframework.data:spring-data-commons")
+    testImplementation("org.springframework.data:spring-data-commons")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
 }
 
 publishing {
