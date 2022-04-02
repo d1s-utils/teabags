@@ -1,6 +1,6 @@
 package dev.d1s.teabag.web
 
-import dev.d1s.teabag.testing.spring.http.mockRequest
+import dev.d1s.teabag.testing.spring.web.http.mockRequest
 import io.mockk.every
 import io.mockk.mockkStatic
 import io.mockk.verify

@@ -7,5 +7,5 @@ include(
     "teabag-spring-web",
     "teabag-stdlib",
     "teabag-testing",
-    "teabag-testing-spring"
+    "teabag-testing-spring-web"
 )

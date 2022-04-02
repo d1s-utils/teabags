@@ -12,7 +12,7 @@ dependencies {
 
 publishing {
     publications {
-        create<MavenPublication>("teabag-testing-spring") {
+        create<MavenPublication>("teabag-testing-spring-web") {
             from(components["java"])
         }
     }

@@ -3,8 +3,8 @@ package dev.d1s.teabag.web
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import dev.d1s.teabag.testing.constant.VALID_STUB
-import dev.d1s.teabag.testing.spring.http.mockRequest
-import dev.d1s.teabag.testing.spring.http.mockResponse
+import dev.d1s.teabag.testing.spring.web.http.mockRequest
+import dev.d1s.teabag.testing.spring.web.http.mockResponse
 import dev.d1s.teabag.web.dto.ErrorDto
 import io.mockk.every
 import io.mockk.mockkStatic
