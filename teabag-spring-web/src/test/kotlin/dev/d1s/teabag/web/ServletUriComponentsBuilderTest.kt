@@ -9,8 +9,11 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder
 import org.springframework.web.util.UriComponentsBuilder
 import strikt.api.expectThat
 import strikt.assertions.isEqualTo
+import java.net.URI
 
 internal class ServletUriComponentsBuilderTest {
+
+    private val testUri = URI("https://d1s.dev")
 
     @Test
     fun `should return valid uri with appended path`() {
@@ -33,6 +36,31 @@ internal class ServletUriComponentsBuilderTest {
                     .configure()
                     .path(VALID_STUB)
                     .buildWithNoEncoding()
+            }
+        }
+    }
+
+    @Test
+    fun `should return valid appended uri`() {
+        mockServletUriComponentsBuilder {
+            every {
+                ServletUriComponentsBuilder
+                    .fromCurrentRequest()
+                    .configure()
+                    .path("{value}")
+                    .build(VALID_STUB)
+            } returns testUri
+
+            expectThat(
+                appendUri(VALID_STUB)
+            ) isEqualTo testUri
+
+            verify {
+                ServletUriComponentsBuilder
+                    .fromCurrentRequest()
+                    .configure()
+                    .path("{value}")
+                    .build(VALID_STUB)
             }
         }
     }

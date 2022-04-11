@@ -3,6 +3,7 @@ package dev.d1s.teabag.web
 import dev.d1s.teabag.web.marker.TeabagWebDslMarker
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder
 import org.springframework.web.util.UriComponentsBuilder
+import java.net.URI
 
 public fun buildFromCurrentRequest(): UriComponentsBuilder = ServletUriComponentsBuilder.fromCurrentRequest()
 
@@ -11,7 +12,8 @@ public inline fun buildFromCurrentRequest(block: UriComponentsBuilder.() -> Unit
     buildFromCurrentRequest().apply(block).toUriString()
 
 public fun appendPath(
-    value: String, includeScheme: Boolean = true,
+    value: String,
+    includeScheme: Boolean = true,
     replaceHttpWithHttps: Boolean = true,
     keepParameters: Boolean = false,
     encode: Boolean = false
@@ -20,6 +22,17 @@ public fun appendPath(
     .configureParameters(keepParameters)
     .path(value)
     .toUriString(encode)
+
+public fun appendUri(
+    value: String,
+    includeScheme: Boolean = true,
+    replaceHttpWithHttps: Boolean = true,
+    keepParameters: Boolean = false,
+): URI = buildFromCurrentRequest()
+    .configureScheme(includeScheme, replaceHttpWithHttps)
+    .configureParameters(keepParameters)
+    .path("{value}")
+    .build(value)
 
 public fun appendRootPath(
     value: String, includeScheme: Boolean = true,
