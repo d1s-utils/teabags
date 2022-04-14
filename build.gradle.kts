@@ -46,6 +46,10 @@ allprojects {
 
     tasks.withType<KotlinCompile> {
         targetCompatibility = "11"
+
+        kotlinOptions {
+            languageVersion = "1.7"
+        }
     }
 
     tasks.withType<Jar> {
