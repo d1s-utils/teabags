@@ -20,7 +20,7 @@ public fun appendPath(
 ): String = buildFromCurrentRequest()
     .configureScheme(includeScheme, replaceHttpWithHttps)
     .configureParameters(keepParameters)
-    .path(value)
+    .path("/$value")
     .toUriString(encode)
 
 public fun appendUri(
@@ -31,7 +31,7 @@ public fun appendUri(
 ): URI = buildFromCurrentRequest()
     .configureScheme(includeScheme, replaceHttpWithHttps)
     .configureParameters(keepParameters)
-    .path("{value}")
+    .path("/{value}")
     .build(value)
 
 public fun appendRootPath(
@@ -43,7 +43,7 @@ public fun appendRootPath(
     .configureScheme(includeScheme, replaceHttpWithHttps)
     .configureParameters(keepParameters)
     .replacePath(null)
-    .path(value)
+    .path("/$value")
     .toUriString(encode)
 
 public fun currentUriWithNoPath(

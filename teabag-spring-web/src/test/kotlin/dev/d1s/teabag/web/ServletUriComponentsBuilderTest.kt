@@ -22,7 +22,7 @@ internal class ServletUriComponentsBuilderTest {
                 ServletUriComponentsBuilder
                     .fromCurrentRequest()
                     .configure()
-                    .path(VALID_STUB)
+                    .path("/$VALID_STUB")
                     .buildWithNoEncoding()
             } returns VALID_STUB
 
@@ -34,7 +34,7 @@ internal class ServletUriComponentsBuilderTest {
                 ServletUriComponentsBuilder
                     .fromCurrentRequest()
                     .configure()
-                    .path(VALID_STUB)
+                    .path("/$VALID_STUB")
                     .buildWithNoEncoding()
             }
         }
@@ -47,7 +47,7 @@ internal class ServletUriComponentsBuilderTest {
                 ServletUriComponentsBuilder
                     .fromCurrentRequest()
                     .configure()
-                    .path("{value}")
+                    .path("/{value}")
                     .build(VALID_STUB)
             } returns testUri
 
@@ -59,7 +59,7 @@ internal class ServletUriComponentsBuilderTest {
                 ServletUriComponentsBuilder
                     .fromCurrentRequest()
                     .configure()
-                    .path("{value}")
+                    .path("/{value}")
                     .build(VALID_STUB)
             }
         }
@@ -73,7 +73,7 @@ internal class ServletUriComponentsBuilderTest {
                     .fromCurrentRequest()
                     .configure()
                     .replacePath(null)
-                    .path(VALID_STUB)
+                    .path("/$VALID_STUB")
                     .buildWithNoEncoding()
             } returns VALID_STUB
 
@@ -86,7 +86,7 @@ internal class ServletUriComponentsBuilderTest {
                     .fromCurrentRequest()
                     .configure()
                     .replacePath(null)
-                    .path(VALID_STUB)
+                    .path("/$VALID_STUB")
                     .buildWithNoEncoding()
             }
         }
