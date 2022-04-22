@@ -24,7 +24,7 @@ internal class ErrorDtoTest {
                 every {
                     currentRequest
                 } returns mockRequest.apply {
-                    pathInfo = VALID_STUB
+                    requestURI = VALID_STUB
                 }
 
                 val error = ErrorDto()
