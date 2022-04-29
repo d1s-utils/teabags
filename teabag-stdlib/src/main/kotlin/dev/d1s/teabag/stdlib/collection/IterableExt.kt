@@ -25,3 +25,9 @@ public fun Iterable<String>.toSpaceDelimitedString(): String = this.joinToString
 public fun Iterable<String>.lengthiestLine(): String = this.maxByOrNull {
     it.length
 } ?: throw IllegalArgumentException("This iterable is empty.")
+
+public inline fun <E, R> Iterable<E>.mapToSet(transform: (E) -> R): Set<R> =
+    this.map(transform).toSet()
+
+public inline fun <E, R> Iterable<E>.mapToMutableSet(transform: (E) -> R): MutableSet<R> =
+    this.map(transform).toMutableSet()
