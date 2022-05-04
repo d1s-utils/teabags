@@ -1,4 +1,4 @@
-package dev.d1s.teabag.logging
+package dev.d1s.teabag.slf4j
 
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory

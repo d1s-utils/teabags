@@ -2,6 +2,7 @@ rootProject.name = "teabags"
 
 include(
     "teabag-dto",
+    "teabag-log4j",
     "teabag-mapstruct",
     "teabag-slf4j",
     "teabag-spring-data",
