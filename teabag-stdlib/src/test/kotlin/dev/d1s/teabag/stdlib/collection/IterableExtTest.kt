@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test
 import strikt.api.expectThat
 import strikt.assertions.containsExactly
 import strikt.assertions.isEqualTo
+import strikt.assertions.isFalse
+import strikt.assertions.isTrue
 
 internal class IterableExtTest {
 
@@ -41,9 +43,7 @@ internal class IterableExtTest {
     @Test
     fun `should return set with transformed values`() {
         expectThat(
-            listOf(
-                1, 2, 3
-            ).mapToSet {
+            listOf(1, 2, 3).mapToSet {
                 it.toString()
             }
         ).containsExactly("1", "2", "3")
@@ -52,11 +52,51 @@ internal class IterableExtTest {
     @Test
     fun `should return mutable set with transformed values`() {
         expectThat(
-            listOf(
-                1, 2, 3
-            ).mapToMutableSet {
+            listOf(1, 2, 3).mapToMutableSet {
                 it.toString()
             }
         ).containsExactly("1", "2", "3")
     }
+
+    @Test
+    fun `should return true when calling hasDuplicates`() {
+        expectThat(
+            listOf(3, 2, 3).hasDuplicates()
+        ).isTrue()
+    }
+
+    @Test
+    fun `should return false when calling hasDuplicates`() {
+        expectThat(
+            listOf(1, 2, 3).hasDuplicates()
+        ).isFalse()
+    }
+
+    @Test
+    fun `should return true when calling hasDuplicatesBy`() {
+        expectThat(
+            listOf(
+                Wrapper(3),
+                Wrapper(2),
+                Wrapper(3)
+            ).hasDuplicatesOf {
+                it.value
+            }
+        ).isTrue()
+    }
+
+    @Test
+    fun `should return false when calling hasDuplicatesOf`() {
+        expectThat(
+            listOf(
+                Wrapper(3),
+                Wrapper(2),
+                Wrapper(1)
+            ).hasDuplicatesOf {
+                it.value
+            }
+        ).isFalse()
+    }
+
+    private class Wrapper(val value: Int)
 }
