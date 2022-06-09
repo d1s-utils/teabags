@@ -31,3 +31,9 @@ public inline fun <E, R> Iterable<E>.mapToSet(transform: (E) -> R): Set<R> =
 
 public inline fun <E, R> Iterable<E>.mapToMutableSet(transform: (E) -> R): MutableSet<R> =
     this.map(transform).toMutableSet()
+
+public fun Iterable<*>.hasDuplicates(): Boolean = this.toSet().size != this.toList().size
+
+public fun <E, T> Iterable<E>.hasDuplicatesOf(selector: (E) -> T): Boolean = this.map {
+    selector(it)
+}.hasDuplicates()
