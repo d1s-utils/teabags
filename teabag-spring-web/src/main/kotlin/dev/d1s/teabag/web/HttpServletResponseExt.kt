@@ -12,7 +12,7 @@ public fun HttpServletResponse.sendErrorDto(errorDtoConfiguration: ErrorDto.() -
     val errorDto = ErrorDto().apply(errorDtoConfiguration)
     contentType = MediaType.APPLICATION_JSON_VALUE
     status = errorDto.status
-    writer.use {
-        it.print(objectMapper.writeValueAsString(errorDto))
-    }
+    outputStream.print(
+        objectMapper.writeValueAsString(errorDto)
+    )
 }
