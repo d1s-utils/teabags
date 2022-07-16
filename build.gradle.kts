@@ -1,12 +1,11 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.7.0"
+    kotlin("jvm") version "1.7.10"
 }
 
 allprojects {
     apply {
-        plugin("java-library")
         plugin("maven-publish")
         plugin("org.jetbrains.kotlin.jvm")
     }
@@ -31,8 +30,6 @@ allprojects {
     }
 
     tasks.withType<Test> {
-        enabled = false
-
         useJUnitPlatform()
 
         testLogging {
@@ -55,6 +52,6 @@ allprojects {
     }
 
     kotlin {
-        explicitApiWarning()
+        explicitApi()
     }
 }

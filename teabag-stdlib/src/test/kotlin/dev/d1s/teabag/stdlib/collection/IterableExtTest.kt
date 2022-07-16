@@ -1,3 +1,19 @@
+/*
+ * Copyright 2022 Teabags project contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package dev.d1s.teabag.stdlib.collection
 
 import org.junit.jupiter.api.Test
@@ -11,12 +27,12 @@ internal class IterableExtTest {
 
     @Test
     fun `should return true`() {
-        expectThat(setOf(1, 2, 3) anyIn setOf(0, 5, 2)).isEqualTo(true)
+        expectThat(listOf(1, 2, 3) anyIn listOf(0, 5, 2)).isEqualTo(true)
     }
 
     @Test
     fun `should return false`() {
-        expectThat(setOf(1, 2, 3) anyIn setOf(4, 5, 6)).isEqualTo(false)
+        expectThat(listOf(1, 2, 3) anyIn listOf(4, 5, 6)).isEqualTo(false)
     }
 
     @Test
@@ -32,7 +48,7 @@ internal class IterableExtTest {
 
     @Test
     fun `should return space delimited string`() {
-        expectThat(setOf("a", "b", "c").toSpaceDelimitedString()) isEqualTo "a b c"
+        expectThat(listOf("a", "b", "c").toSpaceDelimitedString()) isEqualTo "a b c"
     }
 
     @Test
@@ -41,18 +57,9 @@ internal class IterableExtTest {
     }
 
     @Test
-    fun `should return set with transformed values`() {
+    fun `should return mutable list with transformed values`() {
         expectThat(
-            listOf(1, 2, 3).mapToSet {
-                it.toString()
-            }
-        ).containsExactly("1", "2", "3")
-    }
-
-    @Test
-    fun `should return mutable set with transformed values`() {
-        expectThat(
-            listOf(1, 2, 3).mapToMutableSet {
+            listOf(1, 2, 3).mapToMutableList {
                 it.toString()
             }
         ).containsExactly("1", "2", "3")

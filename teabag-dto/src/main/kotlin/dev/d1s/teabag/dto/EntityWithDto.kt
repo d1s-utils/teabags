@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 Linda project
+ * Copyright 2022 Teabags project contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,4 +17,4 @@
 package dev.d1s.teabag.dto
 
 public typealias EntityWithDto<E, D> = Pair<E, D?>
-public typealias EntityWithDtoSet<E, D> = Pair<Set<E>, Set<D>?>
+public typealias EntityWithDtoList<E, D> = Pair<List<E>, List<D>?>

@@ -19,13 +19,13 @@ dependencies {
 
 ### Modules
 
-| Module                      | Description                                              |
-|-----------------------------|----------------------------------------------------------|
-| `teabag-dto`                | Utilities for converting entities to DTOs and vice versa |
-| `teabag-mapstruct`          | Utilities for mapstruct's `Mappers`.                     |
-| `teabag-slf4j`              | Utilities for for `slf4j-api`.                           |
-| `teabag-spring-data`        | Utilities for Spring Data                                | 
-| `teabag-spring-web`         | Utilities for Spring Web.                                |
-| `teabag-stdlib`             | Utilities for Kotlin/JVM standard library.               |
-| `teabag-testing`            | Utilities for testing.                                   |
-| `teabag-testing-spring-web` | Utilities for testing Spring projects.                   |
+| Module                      | Description                                               |
+|-----------------------------|-----------------------------------------------------------|
+| `teabag-dto`                | Utilities for converting entities to DTOs and vice versa. |
+| `teabag-hibernate`          | Utilities for the Hibernate framework.                    |
+| `teabag-mapstruct`          | Utilities for mapstruct's `Mappers`.                      |
+| `teabag-spring-data`        | Utilities for Spring Data.                                | 
+| `teabag-spring-web`         | Utilities for Spring Web.                                 |
+| `teabag-stdlib`             | Utilities for Kotlin/JVM standard library.                |
+| `teabag-testing`            | Utilities for testing.                                    |
+| `teabag-testing-spring-web` | Utilities for testing Spring projects.                    |
