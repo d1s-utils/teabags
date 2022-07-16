@@ -12,7 +12,7 @@ allprojects {
     }
 
     group = "dev.d1s"
-    version = "8.0.0-stable.1"
+    version = "8.0.1-stable.0"
     java.sourceCompatibility = JavaVersion.VERSION_11
 
     repositories {
