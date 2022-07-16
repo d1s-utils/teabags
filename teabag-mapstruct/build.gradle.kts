@@ -1,5 +1,5 @@
-val junitVersion: String by project
 val mapstructVersion: String by project
+val junitVersion: String by project
 
 dependencies {
     implementation("org.mapstruct:mapstruct:$mapstructVersion")
