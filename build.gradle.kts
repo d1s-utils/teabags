@@ -6,6 +6,7 @@ plugins {
 
 allprojects {
     apply {
+        plugin("java-library")
         plugin("maven-publish")
         plugin("org.jetbrains.kotlin.jvm")
     }
@@ -30,6 +31,8 @@ allprojects {
     }
 
     tasks.withType<Test> {
+        enabled = false
+
         useJUnitPlatform()
 
         testLogging {
