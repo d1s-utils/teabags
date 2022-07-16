@@ -11,7 +11,7 @@ allprojects {
     }
 
     group = "dev.d1s"
-    version = "7.5.2-stable.0"
+    version = "8.0.0-stable.0"
     java.sourceCompatibility = JavaVersion.VERSION_11
 
     repositories {
@@ -45,13 +45,13 @@ allprojects {
 
     tasks.withType<KotlinCompile> {
         kotlinOptions.jvmTarget = "11"
+
+        kotlinOptions {
+            freeCompilerArgs = listOf("-Xexplicit-api=strict")
+        }
     }
 
     tasks.withType<Jar> {
         archiveClassifier.set("")
-    }
-
-    kotlin {
-        explicitApi()
     }
 }
