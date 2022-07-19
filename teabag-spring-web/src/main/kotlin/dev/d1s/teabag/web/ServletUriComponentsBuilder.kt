@@ -17,6 +17,7 @@
 package dev.d1s.teabag.web
 
 import dev.d1s.teabag.web.marker.TeabagWebDslMarker
+import dev.d1s.teabag.web.properties.HttpConfigurationProperties
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder
 import org.springframework.web.util.UriComponentsBuilder
 
@@ -26,7 +27,7 @@ private const val X_FORWARDED_PROTO = "X-Forwarded-Proto"
 public inline fun <R> buildFromCurrentRequest(block: UriComponentsBuilder.() -> R): R =
     ServletUriComponentsBuilder.fromCurrentRequest().run(block)
 
-public fun UriComponentsBuilder.configureSsl(fallbackToHttps: Boolean = false) {
+public fun UriComponentsBuilder.configureScheme(fallbackToHttps: Boolean = false) {
     currentRequest.getHeader(X_FORWARDED_PROTO)?.let {
         scheme(it)
     } ?: run {
@@ -34,4 +35,8 @@ public fun UriComponentsBuilder.configureSsl(fallbackToHttps: Boolean = false) {
             scheme("https")
         }
     }
+}
+
+public fun UriComponentsBuilder.configureScheme(httpConfigurationProperties: HttpConfigurationProperties) {
+    configureScheme(httpConfigurationProperties.fallbackToHttps)
 }

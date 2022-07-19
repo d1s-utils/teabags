@@ -31,7 +31,7 @@ internal class ServletUriComponentsBuilderTest {
     fun `should build the uri`() {
         this.withStaticMocks {
             buildFromCurrentRequest {
-                configureSsl()
+                configureScheme()
             }
 
             verify {
@@ -48,7 +48,7 @@ internal class ServletUriComponentsBuilderTest {
             } returns mockRequest
 
             buildFromCurrentRequest {
-                configureSsl(true)
+                configureScheme(true)
             }
 
             verify {

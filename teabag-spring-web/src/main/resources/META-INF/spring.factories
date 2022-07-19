@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  dev.d1s.teabag.web.configuration.ConfigurationPropertiesAutoConfiguration

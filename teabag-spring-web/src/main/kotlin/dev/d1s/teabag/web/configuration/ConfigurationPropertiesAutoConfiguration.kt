@@ -14,17 +14,12 @@
  * limitations under the License.
  */
 
-val junitVersion: String by project
+package dev.d1s.teabag.web.configuration
 
-dependencies {
-    testImplementation(project(":teabag-testing"))
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
-}
+import dev.d1s.teabag.web.properties.HttpConfigurationProperties
+import org.springframework.boot.context.properties.EnableConfigurationProperties
+import org.springframework.context.annotation.Configuration
 
-publishing {
-    publications {
-        create<MavenPublication>("teabag-stdlib") {
-            from(components["java"])
-        }
-    }
-}
+@Configuration
+@EnableConfigurationProperties(HttpConfigurationProperties::class)
+public class ConfigurationPropertiesAutoConfiguration

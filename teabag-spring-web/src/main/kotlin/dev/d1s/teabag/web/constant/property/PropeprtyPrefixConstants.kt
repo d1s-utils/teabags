@@ -14,17 +14,6 @@
  * limitations under the License.
  */
 
-val junitVersion: String by project
+package dev.d1s.teabag.web.constant.property
 
-dependencies {
-    testImplementation(project(":teabag-testing"))
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
-}
-
-publishing {
-    publications {
-        create<MavenPublication>("teabag-stdlib") {
-            from(components["java"])
-        }
-    }
-}
+internal const val HTTP_PROPERTY_PREFIX = "http"
