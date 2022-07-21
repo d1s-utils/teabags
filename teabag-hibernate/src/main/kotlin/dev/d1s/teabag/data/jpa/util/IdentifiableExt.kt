@@ -19,12 +19,12 @@ package dev.d1s.teabag.data.jpa.util
 import dev.d1s.teabag.data.jpa.Identifiable
 import dev.d1s.teabag.data.jpa.Identifier
 
-public fun List<Identifiable<*>>.mapToIdList(): List<Identifier?> =
+public fun <ID : Identifier> List<Identifiable<ID>>.mapToIdList(): List<ID?> =
     this.map {
         it.id
     }
 
-public fun List<Identifiable<*>>.mapToNotNullIdList(): List<Identifier> =
+public fun <ID : Identifier> List<Identifiable<ID>>.mapToNotNullIdList(): List<ID> =
     this.map {
         requireNotNull(it.id)
     }
