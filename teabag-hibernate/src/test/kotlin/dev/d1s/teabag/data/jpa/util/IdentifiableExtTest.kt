@@ -33,14 +33,18 @@ internal class IdentifiableExtTest {
     fun `should map to id list`() {
         expectThat(
             identifiableList.mapToIdList()
-        ).containsExactly(VALID_STUB)
+        ).containsExactly(
+            StubId(VALID_STUB)
+        )
     }
 
     @Test
     fun `should map to not null id list`() {
         expectThat(
             identifiableList.mapToNotNullIdList()
-        ).containsExactly(VALID_STUB)
+        ).containsExactly(
+            StubId(VALID_STUB)
+        )
     }
 
     @Test
