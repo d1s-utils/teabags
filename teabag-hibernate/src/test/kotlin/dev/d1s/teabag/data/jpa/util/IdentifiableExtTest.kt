@@ -17,11 +17,15 @@
 package dev.d1s.teabag.data.jpa.util
 
 import dev.d1s.teabag.data.jpa.Identifiable
+import dev.d1s.teabag.data.jpa.Identifier
 import dev.d1s.teabag.testing.constant.VALID_STUB
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import strikt.api.expectThat
 import strikt.assertions.containsExactly
+
+@JvmInline
+internal value class StubId(override val asString: String) : Identifier
 
 internal class IdentifiableExtTest {
 
@@ -42,15 +46,15 @@ internal class IdentifiableExtTest {
     @Test
     fun `should throw IllegalArgumentException when mapping to not null id list`() {
         assertThrows<IllegalArgumentException> {
-            (identifiableList + object : Identifiable() {}).mapToNotNullIdList()
+            (identifiableList + object : Identifiable<StubId>() {}).mapToNotNullIdList()
         }
     }
 
     private companion object {
 
         private val identifiableList = listOf(
-            object : Identifiable() {}.apply {
-                id = VALID_STUB
+            object : Identifiable<StubId>() {}.apply {
+                id = StubId(VALID_STUB)
             }
         )
     }

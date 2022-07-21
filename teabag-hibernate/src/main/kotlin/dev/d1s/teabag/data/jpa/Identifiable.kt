@@ -17,17 +17,23 @@
 package dev.d1s.teabag.data.jpa
 
 import org.hibernate.annotations.GenericGenerator
+import java.io.Serializable
 import javax.persistence.Column
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
 import javax.persistence.MappedSuperclass
 
+public interface Identifier : Serializable {
+
+    public val asString: String
+}
+
 @MappedSuperclass
-public abstract class Identifiable {
+public abstract class Identifiable<ID : Identifier> {
 
     @Id
     @Column
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    public var id: String? = null
+    public var id: ID? = null
 }
