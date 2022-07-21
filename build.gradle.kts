@@ -28,7 +28,7 @@ allprojects {
     }
 
     group = "dev.d1s"
-    version = "8.2.1"
+    version = "8.2.2"
     java.sourceCompatibility = JavaVersion.VERSION_11
 
     repositories {
